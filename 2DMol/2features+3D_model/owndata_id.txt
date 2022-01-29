@@ -1,4 +1,4 @@
-interphase  0
-fold            1
-crumple      2
+interphase    0
+fold          1
+crumple       2
 quasiflat     3
