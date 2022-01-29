@@ -35,10 +35,10 @@ class ModelNetDataset(data.Dataset):
         self.classes = list(self.cat.keys())
  
     def __getitem__(self, index):
-        file_index = self.fns[index]        # eg: index:4 -> interphase_1017
+        file_index = self.fns[index]        # eg: index:4 -> interphase_1018
         cls_name = file_index.rsplit(sep='_',maxsplit=1)[0]   # eg: crumple
         cls = self.cat[cls_name]    # eg: out:[0]; interphase belongs to [0], quasiflat belongs to [3]
-        file_name = '{}/{}.txt'.format(cls_name,file_index)  # eg: fold/fold_1052.txt
+        file_name = '{}/{}.txt'.format(cls_name,file_index)  # eg: fold/fold_2170.txt
         pts = np.loadtxt(os.path.join(self.root,file_name),delimiter=' ',dtype=float)[:,1:4]
         # Random downsampling to improve model robustness
         choice = np.random.choice(len(pts), self.npoints, replace=True)
