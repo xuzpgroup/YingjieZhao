@@ -24,9 +24,9 @@ class ModelNetDataset(data.Dataset):
         self.fns = []
         with open(os.path.join(root, 'owndata_{}.txt'.format(self.split)), 'r') as f:
             for line in f:
-                self.fns.append(line.strip())    #line.strip()删除末尾结束符
+                self.fns.append(line.strip())    # line.strip() is using to remove end terminator
  
-        self.cat = {}   #calss
+        self.cat = {}   #class
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '/data/home/zhaoyj/01ML/pointnet.pytorch.3D-v2/misc/owndata_id.txt'), 'r') as f:
             for line in f:
                 ls = line.strip().split()
@@ -35,10 +35,10 @@ class ModelNetDataset(data.Dataset):
         self.classes = list(self.cat.keys())
  
     def __getitem__(self, index):
-        file_index = self.fns[index]        #eg: index:845 -> bed_0114
-        cls_name = file_index.rsplit(sep='_',maxsplit=1)[0]    # eg: airplane
-        cls = self.cat[cls_name]    #eg: out:[0]    airplane belongs to [0],bench belongs to [3]
-        file_name = '{}/{}.txt'.format(cls_name,file_index)  #eg: airplane/airplane_0001.txt
+        file_index = self.fns[index]        # eg: index:4 -> interphase_1017
+        cls_name = file_index.rsplit(sep='_',maxsplit=1)[0]    # eg: crumple
+        cls = self.cat[cls_name]    # eg: out:[0]; interphase belongs to [0], quasiflat belongs to [3]
+        file_name = '{}/{}.txt'.format(cls_name,file_index)  # eg: fold/fold_1052.txt
         pts = np.loadtxt(os.path.join(self.root,file_name),delimiter=' ',dtype=float)[:,1:4]
         #随机降采样，提高模型的鲁棒性
         choice = np.random.choice(len(pts), self.npoints, replace=True)
