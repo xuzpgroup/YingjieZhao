@@ -1,5 +1,7 @@
 import os, shutil
 
+# Create directories for training, validation, and test sets as well as different conformations
+
 base_dir = r"/data/home/zhaoyj/01ML/2Ddatasets_3fea_done"
 
 os.mkdir(base_dir)
@@ -44,7 +46,7 @@ os.mkdir(test_quasiflat_dir)
 
 import random
 
-
+# Randomly divide the training set, validation set, and test set according to the ratio of 0.7:0.15:0.15
 
 
 crumple_dir = r"/data/home/zhaoyj/01ML/2Ddatasets_3fea_pre/crumple"
@@ -131,6 +133,10 @@ for i in range(len(filepaths)):
 
     num += 1
 
+# The structure of CNN implemented with tensorflow   
+# The structure of the convolutional layers adopts the VGG16 network
+# A flattening layer and two fully connected layers are added to the model
+
 from tensorflow.keras.applications import VGG16
 
 conv_base = VGG16(weights = 'imagenet',
@@ -162,6 +168,8 @@ train_datagen = ImageDataGenerator(
 
 validation_datagen = ImageDataGenerator(rescale = 1./255)
 
+# The settings of hyperparameters include the size of batchsize, the learning rate, and the number of epochs
+
 train_generator = train_datagen.flow_from_directory(
          '/data/home/zhaoyj/01ML/2Ddatasets_3fea_done/train',
          target_size = (450,450),
@@ -184,5 +192,7 @@ history = model.fit(
     epochs = 25,
     validation_data = validation_generator,
     validation_freq= 2)
+
+# Save the trained model parameters
 
 model.save('3features+2D-weight.h5')
