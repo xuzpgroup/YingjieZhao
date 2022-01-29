@@ -40,12 +40,10 @@ class ModelNetDataset(data.Dataset):
         cls = self.cat[cls_name]    # eg: out:[0]; interphase belongs to [0], quasiflat belongs to [3]
         file_name = '{}/{}.txt'.format(cls_name,file_index)  # eg: fold/fold_1052.txt
         pts = np.loadtxt(os.path.join(self.root,file_name),delimiter=' ',dtype=float)[:,1:4]
-        #随机降采样，提高模型的鲁棒性
+        # Random downsampling to improve model robustness
         choice = np.random.choice(len(pts), self.npoints, replace=True)
         #numpy.random.choice(a, size=None, replace=True, p=None)
-        #从a(只要是ndarray都可以，但必须是一维的)中随机抽取数字，并组成指定大小(size)的数组
-        #replace:True表示可以取相同数字，False表示不可以取相同数字
-        #数组p：与数组a相对应，表示取数组a中每个元素的概率，默认为选取每个元素的概率相同。
+
  
         point_set = pts[choice, :]
  
@@ -92,7 +90,7 @@ if __name__ == '__main__':
         num_workers=4
     )
     for epoch in range(10):
-        for step,data in enumerate(dataloder,0):     #0表示从索引0开始
+        for step,data in enumerate(dataloder,0):
             points , target = data
             target = target[:,0]
             print('Epoch: ', epoch, '| Step: ', step, '| points: ',
