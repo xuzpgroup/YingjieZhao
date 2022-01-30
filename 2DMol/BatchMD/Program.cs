@@ -24,9 +24,9 @@ namespace Generatingfiles
                     {
                         for (int h = 0; h < stringR12.Count; h++) 
                         {
-                            StreamReader srReadFile = new StreamReader("E:\\Machine learning conformation recognition\\AutoSample\\in_sphere\\in");//读取文件
+                            StreamReader srReadFile = new StreamReader("E:\\Machine learning conformation recognition\\AutoSample\\in_sphere\\in");
 
-                            string os = "E:\\Machine learning conformation recognition\\AutoSample\\sphere\\";//不需要在桌面创建sphere文件夹
+                            string os = "E:\\Machine learning conformation recognition\\AutoSample\\sphere\\";
                             string aimPath = os + "T" + stringT[w] + "\\" + "V" + stringV[a] + "\\" + "K" + stringK1[b] + "\\" + "R" + stringR12[h] ;
                             Directory.CreateDirectory(aimPath);
 
