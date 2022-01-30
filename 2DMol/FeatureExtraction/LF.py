@@ -7,6 +7,8 @@ import numpy as np
 import time
 
 np.set_printoptions(threshold=np.inf)
+
+# Initial 2D manifold
 df = pd.read_csv('I100_2.txt', sep='\t', header=None)
 A=df.values
 B = zeros((11600,4),dtype=double)
@@ -31,6 +33,8 @@ def EuclideanDistances(A, B):
     ED = np.sqrt(SqED)
     return ED
 disA = EuclideanDistances(A[:,1:4], A[:,1:4]);
+
+# Define the cut-off of contact
 LJ =14.8*2.5;
 tic1 = time.time()
 for i in range(2484):
