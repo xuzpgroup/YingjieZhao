@@ -7,6 +7,9 @@ The MDscripts directory includes:
 The input files of different constraints and surface interaction;
 The data files of various size.
 
+The BatchMD directory includes:
+The C# code to generate directories and input 0files with different parameters
+The bash script to submit MD tasks in batches
 
 The UnsupervisedLearning directory includes:
 The code of K-means algorithm;
