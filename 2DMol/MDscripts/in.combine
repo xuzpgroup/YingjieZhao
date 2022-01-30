@@ -137,6 +137,8 @@ velocity net create ${Tmin} 798
 
 #fix wxlo all wall/region xlo harmonic 10.0 10.0 10.0
 #fix wxhi all wall/region xhi harmonic 10.0 10.0 10.0
+
+# Apply both spherical and cylindrical constraints at the same time
 fix wsph all wall/region sph harmonic 10.0 10.0 10.0
 fix wcyl all wall/region cyl harmonic 10.0 10.0 10.0
 
