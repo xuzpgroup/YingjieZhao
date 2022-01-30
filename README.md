@@ -21,7 +21,7 @@ The C# code to convert relax.dump to PointSet (txt type flies).
 
 The MKXYZ directory includes:
 The bash script to copy the xyz file (generated from MD simulations) in batches;
-The C# code to cut the xyz file in the specific frame. 
+The C# code to cut the xyz file in the specific frame, and the xyz files are used to calculate SASA and Rg in VMD.
 
 The UnsupervisedLearning directory includes:
 The code of K-means algorithm;
