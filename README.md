@@ -19,6 +19,10 @@ The MKPointSet directory includes:
 The bash script to copy the relax.dump file (generated from MD simulations) in batches;
 The C# code to convert relax.dump to PointSet (txt type flies).
 
+The MKXYZ directory includes:
+The bash script to copy the xyz file (generated from MD simulations) in batches;
+The C# code to cut the xyz file in the specific frame. 
+
 The UnsupervisedLearning directory includes:
 The code of K-means algorithm;
 The label results for different models.
