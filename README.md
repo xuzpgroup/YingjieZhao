@@ -8,8 +8,13 @@ The input files of different constraints and surface interaction;
 The data files of various size.
 
 The BatchMD directory includes:
-The C# code to generate directories and input 0files with different parameters
-The bash script to submit MD tasks in batches
+The C# code to generate directories and input 0files with different parameters;
+The bash script to submit MD tasks in batches.
+
+The MK2Dmap directory includes:
+The bash script to copy the relax.dump file (generated from MD simulations), call the main.py file, and generate the Edis.vel file in batches;
+The tcl script to color the atoms according to the energy values in the Edis.vel file;
+The C code in src directory to compiled as shared library 'libread.so'.
 
 The UnsupervisedLearning directory includes:
 The code of K-means algorithm;
